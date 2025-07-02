@@ -1,6 +1,14 @@
 ---
 title: Reference
 ---
+## Glossary
+
+binary image
+:   an image of pixels with only two possible values, 0 and 1. Typically, the two colours used for a binary image are black and white.
+
+bit
+:   in computing a unit with a state of either 0 or 1.
+
 
 ## Python syntax primer
 
