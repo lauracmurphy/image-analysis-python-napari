@@ -2,16 +2,15 @@
 site: sandpaper::sandpaper_site
 ---
 
-This image analysis course provides an introduction to basic image analysis techniques in two environments:
-[Python](https://www.python.org) and [Napari](https://napari.org).
+This image analysis course provides an introduction to basic image analysis techniques in two Python environments:
+[Jupyter](https://www.python.org) and [Napari](https://napari.org).
 
 These two environments have different interfaces for user interaction, but both offer powerful tools for image
 processing and analysis. Both are discussed here in order to highlight the relative strengths of each one, and
 to present the analysis techniques in this course as generic and independent of one particular platform.
 
-The first section on Python consists of working in a [Jupyter](https://jupyter.org/) notebook setting, but can equally be done in the
-terminal. This way of working also lends itself quite well to adapting your analysis process into a workflow that
-can be applied to a batch of many images.
+The first section on Python consists of working in a [Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/) setting, but can equally be done in the
+terminal. Juypter notebooks are often used for academic purpose as they facilitate documenting what the code does, the output and the ability to add additional explanations and links to resources. The lends itself quite well to adapting your analysis process into a workflow that can be applied to a batch of many images.
 
 Napari is a point-and-click graphical user interface, which is well-suited to exploring and previewing images,
 and is particularly useful for viewing multi-dimensional data such as 3D Z-stacks and time series. Incidentally,
