@@ -1,15 +1,63 @@
 ---
 title: Reference
 ---
-## Glossary
+## Primer on the Basics of Digital Images
 
-binary image
-:   an image of pixels with only two possible values, 0 and 1. Typically, the two colours used for a binary image are black and white.
+### Pixels and Intensity  
+Microscopy images are made up of pixels arranged in a grid. Each pixel stores a numerical value representing how bright that part of the image is, often referred to as the intensity. In most images, higher values mean brighter areas. These values are the foundation for all image-based measurements.
 
-bit
-:   in computing a unit with a state of either 0 or 1.
+### Bit Depth  
+Bit depth determines the range of intensity values that can be stored per pixel. An 8-bit image stores values from 0 to 255, while a 16-bit image allows values from 0 to 65,535. Higher bit depth enables better representation of subtle brightness differences, which is important when imaging faint or low-contrast structures.
 
+### Image Dimensions  
+Microscopy data often has more than two dimensions. In addition to spatial (x, y), you may also have:
+- **z-stacks** (depth),
+- **Time series** (t),
+- **Multiple channels** (c).
 
+This results in 3D, 4D, or even 5D images. Tools like Napari are built to work with n-dimensional image data.
+
+### Channels  
+Each channel represents a different signal or fluorophore, captured using specific excitation and emission settings (e.g., DAPI for nuclei or GFP-tagged proteins). These are usually stored as separate grayscale images and can be visualized together as composite images. Different channels are often analysed separately, depending on what they label.
+
+### Brightness and Contrast  
+Brightness and contrast settings determine how intensity values are mapped to your screen. You usually set a display minimum and maximum and for a linear grayscale look up table intensities below the minimum will appear black, above the maximum appear white, and values in between are scaled accordingly. These adjustments affect only the display, making things appear brighter or giving them more contrast. The underlying data is not affected by this.
+
+### File Formats  
+Microscopy images come in a range of formats:
+- **Open formats** like `.tif` (TIFF) are commonly used and broadly supported by analysis tools.
+- **Proprietary formats** like `.nd2`, `.czi`, and `.lif` are produced by specific microscope systems and often contain embedded metadata.
+
+When exporting images for analysis, use formats that preserve full bit depth and metadata.
+
+### Metadata  
+Metadata is "data about data" — it describes how to interpret the intensity grid. This includes pixel size (e.g., microns per pixel), z-step size, channel names, and microscope settings like exposure time or objective lens. Metadata is essential for accurate measurements and reproducibility, especially in 3D or time-lapse datasets.
+
+### Noise and Convolution  
+All microscopy images contain **noise** — random fluctuations in pixel values that do not reflect the actual structure of the sample. Common sources include:
+- **Shot noise** from the light detection process,
+- **Electronic noise** from the detector,
+- **Background autofluorescence** from the sample or mounting media.
+
+**Convolution** in microscopy refers to how light from a single point in the sample spreads into a shape called the **point spread function (PSF)** due to diffraction and optical limitations. This blurs the image and limits resolution. Many image processing steps aim to reverse or account for this effect and the effect of noise.
+
+### Filters  
+Filters are used to reduce noise, enhance contrast, or correct illumination. Common examples:
+- **Gaussian blur**: smooths the image by averaging nearby pixels.
+- **Median filter**: removes speckle noise while preserving edges.
+- **Background subtraction**: removes uneven illumination using techniques like rolling ball or difference of Gaussians.  
+These filters can improve the performance of downstream analysis like segmentation.
+
+### Segmentation  
+Segmentation is the process of identifying and outlining objects of interest (e.g., nuclei, cells, vesicles). It’s a key step in quantitative image analysis. Approaches include:
+- **Thresholding** is the process of deciding which pixels belong to the object or background based on their intensity.  
+- **Binarisation** is the result of thresholding — it converts the image into two values (typically 0 and 1) where one represents the object and the other the background.  
+- **Watershed**: splits touching objects based on shape/topography.
+- **Semantic segmentation**: labels each pixel according to class (e.g., cell vs. background).
+- **Instance segmentation**: detects and labels each object individually.
+- **Deep learning-based tools**: [Cellpose](https://www.cellpose.org/), [StarDist](https://github.com/stardist/stardist), and [Instanseg](https://github.com/instanseg/instanseg) use pre-trained neural networks to perofrm instance segmentation. They can often give good results of complex or low-contrast images that are very difficult to segment usuing traditional image processing methods.
+
+  
 ## Python syntax primer
 
 As this is a course on image analysis, some prior knowledge of Python syntax is assumed.
@@ -223,3 +271,11 @@ for val in values:
     else:
         print(str(val) + ' is less than 0')
 ```
+
+## Glossary
+
+binary image
+:   an image of pixels with only two possible values, 0 and 1. Typically, the two colours used for a binary image are black and white.
+
+bit
+:   in computing a unit with a state of either 0 or 1.
