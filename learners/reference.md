@@ -18,45 +18,45 @@ Microscopy data often has more than two dimensions. In addition to spatial (x, y
 This results in 3D, 4D, or even 5D images. Tools like Napari are built to work with n-dimensional image data.
 
 ### Channels  
-Each channel represents a different signal or fluorophore, captured using specific excitation and emission settings (e.g., DAPI for nuclei or GFP-tagged proteins). These are usually stored as separate grayscale images and can be visualized together as composite images. Different channels are often analysed separately, depending on what they label.
+Each channel represents a different signal or fluorophore, captured using specific excitation and emission settings (e.g. DAPI for nuclei or GFP-tagged proteins). These are usually stored as separate greyscale images and can be visualised together as composite images. Different channels are often analysed separately, depending on what they label.
 
 ### Brightness and Contrast  
-Brightness and contrast settings determine how intensity values are mapped to your screen. You usually set a display minimum and maximum and for a linear grayscale look up table intensities below the minimum will appear black, above the maximum appear white, and values in between are scaled accordingly. These adjustments affect only the display, making things appear brighter or giving them more contrast. The underlying data is not affected by this.
+Brightness and contrast settings determine how intensity values are mapped to your screen. You usually set a display minimum and maximum; for a linear greyscale lookup table, intensities below the minimum will appear black, those above the maximum will appear white, and values in between are scaled accordingly. These adjustments affect only the display, making structures appear brighter or increasing contrast. The underlying data is not affected.
 
 ### File Formats  
 Microscopy images come in a range of formats:
-- **Open formats** like `.tif` (TIFF) are commonly used and broadly supported by analysis tools.
-- **Proprietary formats** like `.nd2`, `.czi`, and `.lif` are produced by specific microscope systems and often contain embedded metadata.
+- **Open formats** such as `.tif` (TIFF) are commonly used and broadly supported by analysis tools.
+- **Proprietary formats** such as `.nd2`, `.czi`, and `.lif` are produced by specific microscope systems and often contain embedded metadata.
 
 When exporting images for analysis, use formats that preserve full bit depth and metadata.
 
 ### Metadata  
-Metadata is "data about data" — it describes how to interpret the intensity grid. This includes pixel size (e.g., microns per pixel), z-step size, channel names, and microscope settings like exposure time or objective lens. Metadata is essential for accurate measurements and reproducibility, especially in 3D or time-lapse datasets.
+Metadata is "data about data": it describes how to interpret the intensity grid. This includes pixel size (e.g. microns per pixel), z-step size, channel names, and microscope settings such as exposure time or objective lens. Metadata is essential for accurate measurements and reproducibility, especially in 3D or time-lapse datasets.
 
 ### Noise and Convolution  
-All microscopy images contain **noise** — random fluctuations in pixel values that do not reflect the actual structure of the sample. Common sources include:
-- **Shot noise** from the light detection process,
-- **Electronic noise** from the detector,
-- **Background autofluorescence** from the sample or mounting media.
+All microscopy images contain **noise**: random fluctuations in pixel values that do not reflect the actual structure of the sample. Common sources include:
+- **Shot noise** from the light detection process
+- **Electronic noise** from the detector
+- **Background autofluorescence** from the sample or mounting medium
 
-**Convolution** in microscopy refers to how light from a single point in the sample spreads into a shape called the **point spread function (PSF)** due to diffraction and optical limitations. This blurs the image and limits resolution. Many image processing steps aim to reverse or account for this effect and the effect of noise.
+**Convolution** in microscopy refers to how light from a single point in the sample spreads into a shape called the **point spread function (PSF)**, due to diffraction and optical limitations. This blurs the image and limits resolution. Many image processing steps aim to reverse or compensate for the effects of both convolution and noise.
 
 ### Filters  
-Filters are used to reduce noise, enhance contrast, or correct illumination. Common examples:
-- **Gaussian blur**: smooths the image by averaging nearby pixels.
-- **Median filter**: removes speckle noise while preserving edges.
-- **Background subtraction**: removes uneven illumination using techniques like rolling ball or difference of Gaussians.  
-These filters can improve the performance of downstream analysis like segmentation.
+Filters are used to reduce noise, enhance contrast, or correct illumination. Common examples include:
+- **Gaussian blur**: smooths the image by averaging nearby pixels
+- **Median filter**: removes speckle noise while preserving edges
+- **Background subtraction**: removes uneven illumination using techniques such as rolling ball or difference of Gaussians
+
+These filters can improve the performance of downstream analysis such as segmentation.
 
 ### Segmentation  
-Segmentation is the process of identifying and outlining objects of interest (e.g., nuclei, cells, vesicles). It’s a key step in quantitative image analysis. Approaches include:
-- **Thresholding** is the process of deciding which pixels belong to the object or background based on their intensity.  
-- **Binarisation** is the result of thresholding — it converts the image into two values (typically 0 and 1) where one represents the object and the other the background.  
-- **Watershed**: splits touching objects based on shape/topography.
-- **Semantic segmentation**: labels each pixel according to class (e.g., cell vs. background).
-- **Instance segmentation**: detects and labels each object individually.
-- **Deep learning-based tools**: [Cellpose](https://www.cellpose.org/), [StarDist](https://github.com/stardist/stardist), and [Instanseg](https://github.com/instanseg/instanseg) use pre-trained neural networks to perofrm instance segmentation. They can often give good results of complex or low-contrast images that are very difficult to segment usuing traditional image processing methods.
-
+Segmentation is the process of identifying and outlining objects of interest (e.g. nuclei, cells, vesicles). It is a key step in quantitative image analysis. Approaches include:
+- **Thresholding**: the process of deciding which pixels belong to the object or background based on their intensity  
+- **Binarisation**: the result of thresholding; this converts the image into two values (typically 0 and 1), where one represents the object and the other the background  
+- **Watershed**: splits touching objects based on shape or topography  
+- **Semantic segmentation**: labels each pixel according to class (e.g. cell vs background)  
+- **Instance segmentation**: detects and labels each object individually  
+- **Deep learning-based tools**: [Cellpose](https://www.cellpose.org/), [StarDist](https://github.com/stardist/stardist), and [Instanseg](https://github.com/instanseg/instanseg) use pre-trained neural networks to perform instance segmentation. These tools can often give good results on complex or low-contrast images that are difficult to segment using traditional image processing methods.
   
 ## Python syntax primer
 
