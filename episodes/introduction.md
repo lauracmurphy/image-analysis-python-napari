@@ -22,9 +22,9 @@ exercises: 2
 
 ## Welcome
 
-This course introduces essential tools and techniques for working with digital microscopy images using Python. It is aimed at researchers and students with some experience in microscopy and a basic familiarity with Python. You do not need to be an expert programmer to benefit.
+This course introduces essential tools and techniques for working with digital microscopy images using Python. It is aimed at researchers and students with some experience in microscopy and a basic familiarity with scripting. You do not need to be an expert programmer to benefit.
 
-We’ll use real image data and widely-used open-source Python libraries, and we’ll explore what makes digital microscopy unique—multi-dimensional data, metadata, and challenges like segmentation and feature measurement.
+We’ll use real image data and widely-used open-source Python libraries.
 
 ## What will we do in this course?
 
@@ -34,9 +34,11 @@ By the end of the course, you will be able to:
 - Explore and process multi-dimensional datasets (e.g. time series, z-stacks, multi-channel images)
 - Apply filters and perform background correction
 - Segment and measure biological objects (e.g. nuclei, cells)
-- Use tools like Napari for visualising and interacting with image data
+- Use Napari for visualising and interacting with image data
 
-Microscopy image analysis allows you to extract measurable information from biological samples. Examples include:
+## Bioimage Analysis
+
+Bioimage analysis allows you to extract measurable information from biological samples. Examples include:
 
 - Object size, shape, and area
 - Intensity or signal distribution per region
@@ -80,17 +82,18 @@ We’ll work with real microscopy images, including:
 
 - Multi-channel fluorescence `.tif` files
 - 3D z-stacks and time series
-- Colour (RGB) images
 - Proprietary formats (e.g. `.nd2`, `.czi`)
 
 We'll also cover how to read metadata, understand bit depth, and interpret image dimensions.
 
 ::::::::::::::::::::::::::::::::::::: callout
-### Note: RGB vs Scientific Multichannel Images
+### Note: RGB vs Multichannel Images
 
-Images like `.jpg` or `.png` use RGB colour, where each pixel contains red, green, and blue values.
+Images like `.jpg` or `.png` use RGB colour, where each pixel contains red, green, and blue values. This format is common in photography, but also used in scientific imaging — for example, brightfield pathology slides stained with H&E or H-DAB are typically stored as RGB images.
 
-In scientific microscopy, multichannel images are often stored as **separate grayscale channels** (e.g. DAPI, GFP, RFP). These can be visualised as colour composites but are fundamentally different from RGB images used in photography.
+In fluorescence microscopy, however, images are usually stored as **separate grayscale channels**, one per fluorophore (e.g. DAPI, GFP, RFP). These can be combined into a colour composite for display, but are fundamentally different from RGB images where colour is already baked in. These are the only types of images we'll look at today but it's important to know that RGB images exist and you may need to analyse and it might look a bit different from what we do today.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Course structure
@@ -99,13 +102,12 @@ This course is made up of the following episodes:
 
 1. **Introduction** (this episode)
 2. **Opening and checking an image**
-3. **Exploring image dimensions and channels**
-4. **Basic image processing and filtering**
-5. **Segmentation and object detection**
-6. **Working interactively with Napari**
-7. **Measuring and exporting results**
+3. **Applying Filters**
+4. **Thresholding and Segmentation**
+5. **Measurements**
+6. **Introduction to Napari**
 
-Each episode includes code-along demonstrations, exercises, and challenges. The final episode will tie everything together in a small analysis pipeline.
+Each episode includes code-along demonstrations, exercises, and challenges. 
 
 ## Meet the dataset
 
@@ -125,5 +127,4 @@ You’ll also work with z-stacks, RGB images, and proprietary formats like `.nd2
 - This course is for researchers with some Python and microscopy experience
 - We will use open-source tools for exploring, processing, and analysing images
 - You will learn how to work with multi-dimensional bioimages and extract useful measurements
-- All exercises use real microscopy datasets
 ::::::::::::::::::::::::::::::::::::::::::::::::
