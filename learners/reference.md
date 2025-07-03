@@ -1,7 +1,7 @@
 ---
 title: Reference
 ---
-## Primer on the Basics of Digital Images
+## Basics of Digital Images Primer
 ### Pixels and Intensity  
 Microscopy images are made up of pixels arranged in a grid. Each pixel stores a numerical value representing how bright that part of the image is, often referred to as the intensity. In most images, higher values mean brighter areas. These values are the foundation for all image-based measurements.
 
@@ -269,3 +269,66 @@ for val in values:
     else:
         print(str(val) + ' is less than 0')
 ```
+
+
+Glossary
+
+array
+: A structured grid of values. In Python, images are often stored as NumPy arrays.
+
+bit depth
+: The number of bits used to store each pixel's intensity. Higher bit depths allow more precise intensity values.
+
+channel
+: A single grayscale component of a multichannel image, often representing a specific stain or marker.
+
+colormap, also called a lookup table or LUT
+: A colour mapping used to display grayscale images. Doesn't affect pixel values—only how they're shown.
+
+dimension
+: One axis of a multidimensional image (e.g. X, Y, Z, time, channel).
+
+feature extraction
+: Measuring properties of segmented objects (e.g. area, intensity, shape).
+
+histogram
+: A plot showing the distribution of pixel intensities. Use to look at the distribution of intensity values in an image.
+
+Jupyter notebook
+: An interactive coding environment that mixes Python code, outputs, and text explanations in one file.
+
+label
+: A unique integer assigned to each segmented object, used to distinguish and measure them.
+
+metadata
+: Information that describes the image, such as pixel size, acquisition settings, or channel names.
+
+Napari
+: A Python-based interactive viewer for multidimensional image data.
+
+NumPy
+: A Python library for numerical computing. Its arrays are used to represent images in most analysis workflows.
+
+pixel
+: The smallest unit of an image, representing a single intensity value.
+
+pixel spacing
+: The real-world size each pixel represents (e.g. 0.2 µm per pixel). Needed to convert measurements to physical units.
+
+preprocessing
+: Steps to clean or improve an image before analysis, like noise reduction or background subtraction.
+
+Python
+: A high-level programming language widely used for scientific computing and image analysis.
+
+RGB image
+: A colour image with three channels: red, green, and blue..
+
+scikit-image
+: A Python library offering tools for filtering, segmentation, and measuring images.
+
+segmentation
+: Dividing an image into regions of interest, such as cells or nuclei.
+
+thresholding
+: Converting a grayscale image to binary by setting a pixel intensity cutoff.
