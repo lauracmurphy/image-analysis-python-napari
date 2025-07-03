@@ -65,12 +65,13 @@ contact:
 
 # Order of episodes in your lesson
 episodes: 
+- introduction.md
 - 01-opening-and-checking-an-image.md
 - 02-applying-filters.md
 - 03-thresholding-and-segmentation.md
 - 04-measurements.md
 - 05-napari.md
-- introduction.md
+
 
 # Information for Learners
 learners: 
