@@ -26,11 +26,10 @@ Brightness and contrast settings determine how intensity values are mapped to yo
 Microscopy images come in a range of formats:
 - **Open formats** such as `.tif` (TIFF) are commonly used and broadly supported by analysis tools.
 - **Proprietary formats** such as `.nd2`, `.czi`, and `.lif` are produced by specific microscope systems and often contain embedded metadata.
-
 When exporting images for analysis, use formats that preserve full bit depth and metadata.
 
 ### Metadata  
-Metadata is "data about data": it describes how to interpret the intensity grid. This includes pixel size (e.g. microns per pixel), z-step size, channel names, and microscope settings such as exposure time or objective lens. Metadata is essential for accurate measurements and reproducibility, especially in 3D or time-lapse datasets.
+Metadata is "data about data": it describes how to interpret the intensity grid. This includes pixel size (e.g. microns per pixel), z-step size, channel names, and microscope settings such as exposure time or objective lens. Metadata is essential for accurate measurements and reproducibility.
 
 ### Noise and Convolution  
 All microscopy images contain **noise**: random fluctuations in pixel values that do not reflect the actual structure of the sample. Common sources include:
@@ -270,11 +269,3 @@ for val in values:
     else:
         print(str(val) + ' is less than 0')
 ```
-
-## Glossary
-
-binary image
-:   an image of pixels with only two possible values, 0 and 1. Typically, the two colours used for a binary image are black and white.
-
-bit
-:   in computing a unit with a state of either 0 or 1.
