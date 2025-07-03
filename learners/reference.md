@@ -2,7 +2,6 @@
 title: Reference
 ---
 ## Primer on the Basics of Digital Images
-
 ### Pixels and Intensity  
 Microscopy images are made up of pixels arranged in a grid. Each pixel stores a numerical value representing how bright that part of the image is, often referred to as the intensity. In most images, higher values mean brighter areas. These values are the foundation for all image-based measurements.
 
