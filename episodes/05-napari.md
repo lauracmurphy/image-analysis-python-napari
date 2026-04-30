@@ -272,3 +272,4 @@ you would need to add to get it to produce tangible output.
 - Most operations we performed earlier in Python can also be done in Napari,
   either graphically or in the terminal
 ::::::::::::::::::::::::::::::::::::::::::::::::
+ 

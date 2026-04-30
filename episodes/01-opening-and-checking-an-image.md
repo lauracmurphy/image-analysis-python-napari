@@ -469,3 +469,4 @@ out the pixel size.
 - Lookup tables can change how a single-channel image is rendered
 - An RGB image contains 3 channels for red, green and blue
 ::::::::::::::::::::::::::::::::::::::::::::::::
+ 
