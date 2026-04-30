@@ -242,3 +242,4 @@ subsequent chapters for thresholding and segmentation!
 - There are many ways of smoothing an image
 - Different methods will perform better in different situations
 ::::::::::::::::::::::::::::::::::::::::::::::::
+ 
